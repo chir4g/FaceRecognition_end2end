@@ -6,3 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
    return "This is a very beautiful link"
+
+@app.route('/image')
+def index():
+   return "This is a very beautiful link"
