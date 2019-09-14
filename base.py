@@ -22,6 +22,7 @@ def index():
 def imageprocess():
    r = request
    nparr = np.fromstring(r.data, np.uint8)
+   print(nparr)
    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
    small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
    rgb_small_frame = small_frame[:, :, ::-1]
@@ -36,8 +37,9 @@ def imageprocess():
          name = known_face_names[best_match_index]
          face_names.append(name)
          print("Face names",face_names)
-   response = {'message': 'image received. size={}x{} and the user matched is {}'.format(str(img.shape[1]), str(img.shape[0]),str(face_names[0]))}
+   response = {'message': 'image received. size= and the user matched is {}'.format(str(face_names[0]))}
    response_pickled = jsonpickle.encode(response)
+   print(response)
    return Response(response=response_pickled, status=200, mimetype="application/json")
 
 

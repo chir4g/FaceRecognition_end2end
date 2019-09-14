@@ -2,6 +2,7 @@ import requests
 import json
 import cv2
 
+#local = "http://0.0.0.0:5000"
 addr = 'https://webandroidtest.herokuapp.com'
 test_url = addr + '/imageprocess'
 
